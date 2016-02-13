@@ -22,7 +22,7 @@ html {
 }
 #container #main-timer {
   width: 171px;
-  margin: 23px auto 0;
+  margin: 27px auto 7px;
 }
 #container #main-timer span {
   text-align: center;
@@ -55,6 +55,13 @@ html {
 #container #lap-holder .seconds:after {
   content: '.';
 }
+#container #interface {
+  border-bottom: 1px solid #808080;
+  border-top: 1px solid #808080;
+  padding: 20px 0;
+  position: relative;
+  background-color: #d3d3d3;
+}
 #container #interface span {
   display: table-cell;
   vertical-align: middle;
@@ -64,12 +71,57 @@ html {
   height: 60px;
   width: 60px;
   text-align: center;
+  cursor: pointer;
+  background-color: #fff;
 }
 #container #interface span.start {
   border-color: #008000;
   color: #008000;
+  position: relative;
+  left: 70px;
 }
 #container #interface span.stop {
   border-color: #ff0000;
   color: #ff0000;
+  position: relative;
+  left: 70px;
+}
+#container #interface span.lap {
+  position: relative;
+  left: 109px;
+}
+#container #lap-list .lap-list-item {
+  display: block;
+  border-bottom: 1px solid #808080;
+  background-color: #d3d3d3;
+  position: relative;
+  height: 45px;
+}
+#container #lap-list .lap-list-item span {
+  font-size: 22px;
+  top: 9px;
+}
+#container #lap-list .lap-list-item .minutes {
+  position: relative;
+  left: 42%;
+}
+#container #lap-list .lap-list-item .seconds {
+  position: relative;
+  left: 42%;
+}
+#container #lap-list .lap-list-item .milliseconds {
+  position: relative;
+  left: 42%;
+}
+#container #lap-list .lap-list-item .minutes:after {
+  content: ':';
+}
+#container #lap-list .lap-list-item .seconds:after {
+  content: '.';
+}
+#container #lap-list .lap-list-item .lap-count {
+  width: 55px;
+  display: inline-block;
+  position: relative;
+  left: 22px;
 }

@@ -39,19 +39,7 @@ timerApp = {
 		});
 
 		lap.addEventListener('click', function(){
-			var mainTimer = timerApp.settings.maintimer,
-				lapHolder = timerApp.settings.lapholder,
-				lapList = timerApp.settings.laplist,
-				clonedTimer = mainTimer.cloneNode(true),
-				newSpan = document.createElement('span');
-
-				/*Adds lap time to top*/
-				clonedTimer.className = 'lap-clone';
-				lapHolder.innerHTML = clonedTimer.innerHTML;
-
-				/*Adds lap time to list*/
-				newSpan.innerHTML = clonedTimer.innerHTML;
-				lapList.appendChild(newSpan)
+			 timerApp.lapIncrement();
 		});
 	},
 
@@ -61,6 +49,28 @@ timerApp = {
 
 	stopTimer: function(){
 		timerApp.timerClear()
+	},
+
+	lapIncrement: function(){
+		var mainTimer = timerApp.settings.maintimer,
+			lapHolder = timerApp.settings.lapholder,
+			lapList = timerApp.settings.laplist,
+			clonedTimer = mainTimer.cloneNode(true),
+			newSpan = document.createElement('span'),
+			lapNumber;
+
+		/*Adds lap time to top*/
+		clonedTimer.className = 'lap-clone';
+		lapHolder.innerHTML = clonedTimer.innerHTML;
+
+		/*Adds lap time to list*/
+		newSpan.className = 'lap-list-item';
+
+		/*Counts lap number and adds to lap list*/
+		lapNumber = lapList.childNodes.length + 1;
+		newSpan.innerHTML = clonedTimer.innerHTML;
+		newSpan.insertAdjacentHTML( 'afterbegin' , '<span class="lap-count">Lap ' + lapNumber + '</span>');
+		lapList.appendChild(newSpan)
 	},
 
 	timerInterval: function(){

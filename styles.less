@@ -22,7 +22,7 @@ html {
 
     #main-timer {
         width: 171px;
-        margin: 23px auto 0;
+        margin: 27px auto 7px;
 
         span {
             text-align: center;
@@ -64,6 +64,12 @@ html {
     }
 
     #interface {
+        border-bottom: 1px solid #808080;
+        border-top: 1px solid #808080;
+        padding: 20px 0;
+        position: relative;
+        background-color: #d3d3d3;
+
         span {
             display: table-cell;
             vertical-align: middle;
@@ -73,16 +79,72 @@ html {
             height: 60px;
             width: 60px;
             text-align: center;
+            cursor: pointer;
+            background-color: #fff;
         }
 
         span.start {
             border-color: #008000;
             color: #008000;
+            position: relative;
+            left: 70px;
         }
 
         span.stop {
             border-color: #ff0000;
             color: #ff0000;
+            position: relative;
+            left: 70px;
+        }
+
+        span.lap {
+            position: relative;
+            left: 109px;
+        }
+    }
+
+    #lap-list {
+        .lap-list-item {
+            display: block;
+            border-bottom: 1px solid #808080;
+            background-color: #d3d3d3;
+            position: relative;
+            height: 45px;
+
+            span {
+                font-size: 22px;
+                top: 9px;
+            }
+
+            .minutes {
+                position: relative;
+                left: 42%;
+            }
+
+            .seconds {
+                position: relative;
+                left: 42%;
+            }
+
+            .milliseconds {
+                position: relative;
+                left: 42%;
+            }
+
+            .minutes:after {
+                content: ':';
+            }
+
+            .seconds:after {
+                content: '.';
+            }
+
+            .lap-count {
+                width: 55px;
+                display: inline-block;
+                position: relative;
+                left: 22px;
+            }
         }
     }
 }
