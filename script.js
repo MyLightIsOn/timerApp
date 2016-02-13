@@ -2,9 +2,9 @@ var timerApp = timerApp || {};
 
 timerApp = {
 	settings: {
-   		minutes: document.getElementById('minutes'),
-		seconds: document.getElementById('seconds'),
-		milliseconds: document.getElementById('milliseconds'),
+   		minutes: document.getElementsByClassName('minutes'),
+		seconds: document.getElementsByClassName('seconds'),
+		milliseconds: document.getElementsByClassName('milliseconds'),
 		start: document.getElementsByClassName('start'),
 		stop: document.getElementsByClassName('stop'),
 		lapholder: document.getElementById('lap-holder'),
@@ -65,9 +65,9 @@ timerApp = {
 
 	timerInterval: function(){
 		var timerCount = timerApp.settings.timerCount,
-			msSpan = timerApp.settings.milliseconds,
-			secSpan = timerApp.settings.seconds,
-			minSpan = timerApp.settings.minutes,
+			msSpan = timerApp.settings.milliseconds[1],
+			secSpan = timerApp.settings.seconds[1],
+			minSpan = timerApp.settings.minutes[1],
 			secInt = parseInt(secSpan.innerText),
 			minInt = parseInt(minSpan.innerText);
 

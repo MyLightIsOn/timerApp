@@ -4,23 +4,29 @@
     <meta charset="UTF-8">
     <title>Timer App</title>
     <link href="styles.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Quicksand:400,300,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
-    <div id="lap-holder">
 
+<div id="container">
+    <div id="app-name">Stopwatch</div>
+    <div id="lap-holder">
+        <span class="minutes">00</span>
+        <span class="seconds">00</span>
+        <span class="milliseconds">00</span>
     </div>
     <div id="main-timer">
-        <span id="minutes">00</span>
-        <span id="seconds">00</span>
-        <span id="milliseconds">00</span>
+        <span class="minutes">00</span>
+        <span class="seconds">00</span>
+        <span class="milliseconds">00</span>
     </div>
 
-    <div id="lap-list">
-
-    </div>
+    <div id="lap-list"></div>
 
     <button class="start">Start</button>
     <button class="lap">Lap</button>
+</div>
+
 </body>
 <script src="script.js"></script>
 </html>

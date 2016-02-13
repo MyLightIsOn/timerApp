@@ -1,6 +1,40 @@
 html {
     box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+    letter-spacing: -2px;
 }
 *, *:before, *:after {
     box-sizing: inherit;
+}
+
+#container {
+    width: 300px;
+    margin: auto;
+
+    #app-name {
+        text-align: center;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    #main-timer {
+        width: 171px;
+        margin: auto;
+
+        span {
+            text-align: center;
+            font-size: 46px;
+            letter-spacing: -8px;
+            display: inline-block;
+            margin-right: 3px;
+        }
+
+        .minutes:after {
+            content: ':';
+        }
+
+        .seconds:after {
+            content: '.';
+        }
+    }
 }
