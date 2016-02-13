@@ -10,16 +10,19 @@ html {
 #container {
     width: 300px;
     margin: auto;
+    position: relative;
 
     #app-name {
         text-align: center;
         font-weight: bold;
         font-size: 18px;
+        border-bottom: 1px solid #808080;
+        padding: 14px 0;
     }
 
     #main-timer {
         width: 171px;
-        margin: auto;
+        margin: 23px auto 0;
 
         span {
             text-align: center;
@@ -35,6 +38,51 @@ html {
 
         .seconds:after {
             content: '.';
+        }
+    }
+
+    #lap-holder {
+        margin: 9px auto 0;
+        width: 77px;
+        display: inline-block;
+        position: absolute;
+        right: 65px;
+
+        span {
+            text-align: right;
+            display: inline-block;
+            margin-right: 3px;
+        }
+
+        .minutes:after {
+            content: ':';
+        }
+
+        .seconds:after {
+            content: '.';
+        }
+    }
+
+    #interface {
+        span {
+            display: table-cell;
+            vertical-align: middle;
+            border: 1px solid #808080;
+            border-radius: 100%;
+            font-weight: bold;
+            height: 60px;
+            width: 60px;
+            text-align: center;
+        }
+
+        span.start {
+            border-color: #008000;
+            color: #008000;
+        }
+
+        span.stop {
+            border-color: #ff0000;
+            color: #ff0000;
         }
     }
 }

@@ -11,15 +11,18 @@ html {
 #container {
   width: 300px;
   margin: auto;
+  position: relative;
 }
 #container #app-name {
   text-align: center;
   font-weight: bold;
   font-size: 18px;
+  border-bottom: 1px solid #808080;
+  padding: 14px 0;
 }
 #container #main-timer {
   width: 171px;
-  margin: auto;
+  margin: 23px auto 0;
 }
 #container #main-timer span {
   text-align: center;
@@ -33,4 +36,40 @@ html {
 }
 #container #main-timer .seconds:after {
   content: '.';
+}
+#container #lap-holder {
+  margin: 9px auto 0;
+  width: 77px;
+  display: inline-block;
+  position: absolute;
+  right: 65px;
+}
+#container #lap-holder span {
+  text-align: right;
+  display: inline-block;
+  margin-right: 3px;
+}
+#container #lap-holder .minutes:after {
+  content: ':';
+}
+#container #lap-holder .seconds:after {
+  content: '.';
+}
+#container #interface span {
+  display: table-cell;
+  vertical-align: middle;
+  border: 1px solid #808080;
+  border-radius: 100%;
+  font-weight: bold;
+  height: 60px;
+  width: 60px;
+  text-align: center;
+}
+#container #interface span.start {
+  border-color: #008000;
+  color: #008000;
+}
+#container #interface span.stop {
+  border-color: #ff0000;
+  color: #ff0000;
 }
