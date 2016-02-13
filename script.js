@@ -16,22 +16,25 @@ timerApp = {
 	},
 
 	addHandlers: function(){
-		var start = timerApp.settings.start[0],
-		 	stop = timerApp.settings.stop[0];
+		var start = timerApp.settings.start[0];
 
 		start.addEventListener('click', function(){
-			timerApp.startTimer();
-			console.log('Start Clicked!')
-		});
+			var button = this;
 
-		stop.addEventListener('click', function(){
-			timerApp.stopTimer()
+			if(button.className === 'start'){
+				timerApp.startTimer();
+				button.className = 'stop';
+				button.innerText = 'Stop';
+			} else {
+				timerApp.stopTimer();
+				button.className = 'start';
+				button.innerText = 'Start';
+			}
 		});
 	},
 
 	startTimer: function(){
 		timerApp.timerInterval();
-		console.log('Timer Started!')
 	},
 
 	stopTimer: function(){
