@@ -1,29 +1,37 @@
 var timerApp = timerApp || {};
 
 timerApp = {
-	init: function(){
-		var	minutes = document.getElementById('minutes'),
-			seconds = document.getElementById('seconds'),
-			milliseconds = document.getElementById('milliseconds'),
-			start = document.getElementsByClassName('start'),
-			stop = document.getElementsByClassName('stop'),
-			timer = null;
-
-		timerApp.addHandlers(start, stop, timer)
+	settings: {
+   		minutes: document.getElementById('minutes'),
+		seconds: document.getElementById('seconds'),
+		milliseconds: document.getElementById('milliseconds'),
+		start: document.getElementsByClassName('start'),
+		stop: document.getElementsByClassName('stop'),
+		timerCount: 0,
+		timer: null
 	},
 
-	addHandlers: function(start, stop, timer){
-		start[0].addEventListener('click', function(){
-			timerApp.startTimer(timer)
+	init: function(){
+		timerApp.addHandlers()
+	},
+
+	addHandlers: function(){
+		var start = timerApp.settings.start[0],
+		 	stop = timerApp.settings.stop[0];
+
+		start.addEventListener('click', function(){
+			timerApp.startTimer();
+			console.log('Start Clicked!')
 		});
 
-		stop[0].addEventListener('click', function(){
+		stop.addEventListener('click', function(){
 			timerApp.stopTimer()
 		});
 	},
 
 	startTimer: function(){
-		timerApp.timerInterval()
+		timerApp.timerInterval();
+		console.log('Timer Started!')
 	},
 
 	stopTimer: function(){
@@ -31,9 +39,13 @@ timerApp = {
 	},
 
 	timerInterval: function(){
+		var timerCount = timerApp.settings.timerCount,
+			ms = timerApp.settings.milliseconds;
+
 		this.timer = setInterval(function(){
-			console.log('Counting')
-		}, 1000)
+			timerCount = timerCount += 1;
+			ms.innerText = ('00' + timerCount).substr(-2)
+		}, 100)
 	},
 
 	timerClear: function(){
