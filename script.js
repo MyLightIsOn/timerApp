@@ -6,14 +6,15 @@ timerApp = {
 			seconds = document.getElementById('seconds'),
 			milliseconds = document.getElementById('milliseconds'),
 			start = document.getElementsByClassName('start'),
-			stop = document.getElementsByClassName('stop');
+			stop = document.getElementsByClassName('stop'),
+			timer = null;
 
-		timerApp.addHandlers(start, stop)
+		timerApp.addHandlers(start, stop, timer)
 	},
 
-	addHandlers: function(start, stop){
+	addHandlers: function(start, stop, timer){
 		start[0].addEventListener('click', function(){
-			timerApp.startTimer()
+			timerApp.startTimer(timer)
 		});
 
 		stop[0].addEventListener('click', function(){
@@ -22,11 +23,21 @@ timerApp = {
 	},
 
 	startTimer: function(){
-		console.log('Timer started')
+		timerApp.timerInterval()
 	},
 
 	stopTimer: function(){
-		console.log('Timer stopped')
+		timerApp.timerClear()
+	},
+
+	timerInterval: function(){
+		this.timer = setInterval(function(){
+			console.log('Counting')
+		}, 1000)
+	},
+
+	timerClear: function(){
+		clearInterval(this.timer);
 	}
 };
 
