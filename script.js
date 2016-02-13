@@ -7,6 +7,9 @@ timerApp = {
 		milliseconds: document.getElementById('milliseconds'),
 		start: document.getElementsByClassName('start'),
 		stop: document.getElementsByClassName('stop'),
+		lapholder: document.getElementById('lap-holder'),
+		lap: document.getElementsByClassName('lap'),
+		maintimer: document.getElementById('main-timer'),
 		timerCount: 0,
 		timer: null
 	},
@@ -16,7 +19,8 @@ timerApp = {
 	},
 
 	addHandlers: function(){
-		var start = timerApp.settings.start[0];
+		var start = timerApp.settings.start[0],
+			lap = timerApp.settings.lap[0];
 
 		start.addEventListener('click', function(){
 			var button = this;
@@ -30,6 +34,15 @@ timerApp = {
 				button.className = 'start';
 				button.innerText = 'Start';
 			}
+		});
+
+		lap.addEventListener('click', function(){
+			var mainTimer = timerApp.settings.maintimer,
+				lapHolder = timerApp.settings.lapholder,
+				clonedTimer = mainTimer.cloneNode(true);
+
+				clonedTimer.className = 'lap-clone';
+				lapHolder.innerHTML = clonedTimer.innerHTML
 		});
 	},
 
