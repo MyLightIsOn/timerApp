@@ -45,7 +45,8 @@ timerApp = {
 		this.timer = setInterval(function(){
 			timerCount = timerCount += 1;
 			ms.innerText = ('00' + timerCount).substr(-2)
-		}, 100)
+
+		}, 10)
 	},
 
 	timerClear: function(){
