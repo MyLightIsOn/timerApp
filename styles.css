@@ -86,7 +86,8 @@ html {
   position: relative;
   left: 70px;
 }
-#container #interface span.lap {
+#container #interface span.lap,
+#container #interface span.reset {
   position: relative;
   left: 109px;
 }

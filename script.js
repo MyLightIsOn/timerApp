@@ -12,7 +12,8 @@ timerApp = {
 		laplist: document.getElementById('lap-list'),
 		maintimer: document.getElementById('main-timer'),
 		timerCount: 0,
-		timer: null
+		timer: null,
+		reset: null
 	},
 
 	init: function(){
@@ -24,7 +25,8 @@ timerApp = {
 			lap = timerApp.settings.lap[0];
 
 		start.addEventListener('click', function(){
-			var button = this;
+			var button = this,
+				reset;
 
 			/*Toggles timer start button*/
 			if(button.className === 'start'){
@@ -35,11 +37,19 @@ timerApp = {
 				timerApp.stopTimer();
 				button.className = 'start';
 				button.innerText = 'Start';
+				lap.className = 'reset';
+				lap.innerText = 'Reset';
+
+				timerApp.settings.reset = document.getElementsByClassName('reset');
+				reset = timerApp.settings.reset[0];
+				reset.addEventListener('click', function(){
+					timerApp.resetTime();
+				});
 			}
 		});
 
 		lap.addEventListener('click', function(){
-			 timerApp.lapIncrement();
+			timerApp.lapIncrement();
 		});
 	},
 
@@ -49,6 +59,40 @@ timerApp = {
 
 	stopTimer: function(){
 		timerApp.timerClear()
+	},
+
+	resetTime: function(){
+		var timerCount = timerApp.settings.timerCount,
+			msLapSpan = timerApp.settings.milliseconds[0],
+			secLapSpan = timerApp.settings.seconds[0],
+			minLapSpan = timerApp.settings.minutes[0],
+			msSpan = timerApp.settings.milliseconds[1],
+			secSpan = timerApp.settings.seconds[1],
+			minSpan = timerApp.settings.minutes[1],
+			secInt = parseInt(secSpan.innerText),
+			minInt = parseInt(minSpan.innerText),
+			lapList = timerApp.settings.laplist,
+			lap = timerApp.settings.lap,
+			reset = timerApp.settings.reset[0];
+
+			/*Resets Count*/
+			timerCount, secInt, minInt, msLapSpan, secLapSpan, minLapSpan = 0;
+
+			/*Resets timer*/
+			msSpan.innerText = ('00');
+			secSpan.innerText = ('00');
+			minSpan.innerText = ('00');
+
+			/*Resets laps*/
+			msLapSpan.innerText = ('00');
+			secLapSpan.innerText = ('00');
+			minLapSpan.innerText = ('00');
+			lapList.innerHTML = '';
+
+			/*Resets all functionality*/
+			reset.className = 'lap';
+			reset.innerText = 'Lap';
+		    timerApp.init();
 	},
 
 	lapIncrement: function(){
